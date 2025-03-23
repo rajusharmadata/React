@@ -1,11 +1,14 @@
 import './App.css';
 import ProductTab from './productTab';
 import Product from './product';
+import Activity from './Activity';
 
 function App() {
   return (
     <div>
-      <ProductTab />
+      <Activity msg = "Hello" color = "red"/>
+      <Activity msg = "Hello" color = "yellow"/>
+      <Activity msg = "Hello" color = "green"/>
       
     </div>
   );
