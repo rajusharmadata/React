@@ -4,7 +4,7 @@ export default function Price({ oldPrice, newPrice }) {
         <div className="Price">
             <span id = "old">{oldPrice}</span>
             &nbsp; &nbsp; &nbsp; &nbsp;
-            <span>{newPrice}</span>
+            <span id = "new">{newPrice}</span>
         </div>
     );
 }

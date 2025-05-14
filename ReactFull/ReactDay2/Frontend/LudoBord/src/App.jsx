@@ -2,15 +2,18 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Counter from './Counter'
-import Likebtn from '../Likebtn'
+import Ludo from './Ludo'
+import Todo from './Todo'
+
 function App() {
+  
 
   return (
     <>
-    <h1>    React state
-    </h1>
-    <Counter/>
+    <div className="items-center">
+    <Todo/>
+
+    </div>
     </>
   )
 }

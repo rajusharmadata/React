@@ -2,7 +2,15 @@
  height: 100%;
  width: 100%;
   background-color: rgb(207, 169, 71);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  
 }
 #old{
     text-decoration: line-through;
+} 
+
+#new{
+    
+    font-weight: bold;
 }
