@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./components/Card";
 import Songs from "./components/Songs";
 import Counter from "./components/Counter";
@@ -17,11 +17,48 @@ export default function App() {
   //   { name: "manish", country: "india", state: "newDelhi" },
   // ];
   const data = [
-    {name:"Rajusharma",profestion:"Fronted Developer",charge:"$200",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvqzyx_zoi6q2c0Gd1XnE7wysD9PGOLe3-A&s"},
-    {name:"Ranjan",profestion:"Backend Developer",charge:"$200",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvqzyx_zoi6q2c0Gd1XnE7wysD9PGOLe3-A&s"},
-    {name:"Rajusharma",profestion:"Fronted Developer",charge:"$200",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvqzyx_zoi6q2c0Gd1XnE7wysD9PGOLe3-A&s"},
-    {name:"Rajusharma",profestion:"Fronted Developer",charge:"$200",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvqzyx_zoi6q2c0Gd1XnE7wysD9PGOLe3-A&s"}
-  ]
+    {
+      name: "Rajusharma",
+      profestion: "Fronted Developer",
+      charge: "$200",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvqzyx_zoi6q2c0Gd1XnE7wysD9PGOLe3-A&s",
+      frinds: false,
+    },
+    {
+      name: "Ranjan",
+      profestion: "Backend Developer",
+      charge: "$200",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvqzyx_zoi6q2c0Gd1XnE7wysD9PGOLe3-A&s",
+      frinds: false,
+    },
+    {
+      name: "Rajusharma",
+      profestion: "Fronted Developer",
+      charge: "$200",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvqzyx_zoi6q2c0Gd1XnE7wysD9PGOLe3-A&s",
+      frinds: false,
+    },
+    {
+      name: "Rajusharma",
+      profestion: "Fronted Developer",
+      charge: "$200",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBvqzyx_zoi6q2c0Gd1XnE7wysD9PGOLe3-A&s",
+      frinds: false,
+    },
+  ];
+
+  const [realdata, SetRealdata] = useState(data);
+  const buttonHandler = (cardindex) => {
+    return realdata.map((item, index) => {
+      if (index === cardindex) {
+        return { ...item, frinds: !item.frinds };
+      }
+    });
+  };
 
   return (
     <>
@@ -43,20 +80,22 @@ export default function App() {
       {/* <Counter/> */}
       {/* <Newobj/>
        */}
-       {/* <Array/> */}
-       {/* <Card2/> */}
+      {/* <Array/> */}
+      {/* <Card2/> */}
 
-       {/* <Button text = "Submit"  color = "bg-blue-400"/>
+      {/* <Button text = "Submit"  color = "bg-blue-400"/>
        <Button text = "Delete" color = "bg-green-500"/>
        <Button text = "Danger" color = "bg-red-700"/> */}
+
       <div className=" flex items-center justify-center">
-       {
-        data.map((items)=>(
-
-            <Card3  value ={items}/>
-
-        ))
-       }
+        {realdata.map((items, index) => (
+          <Card3
+            value={items}
+            buttonHandler={buttonHandler}
+            key={index}
+            // cardindex={}
+          />
+        ))}
       </div>
     </>
   );
