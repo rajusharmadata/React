@@ -1,31 +1,46 @@
-// import { useState } from 'react';
+
+import { useState } from 'react'
 import './App.css'
+import data from './components/data'
+import Tours from './components/Tours'
+import { MdRefresh } from 'react-icons/md'
 
-import Newproduct from './components/Newproduct'
-import CounterApp from './components/CounterApp';
-import Card from './components/Card';
+
 function App() {
-//   const[name,Setname] = useState("");
+const[place,SetPlace ] = useState(data);
+ function placehandler(id) {
+  let newplace = place.filter((item) => item.id !== id);
+  SetPlace(newplace);
+}
 
-//  function productHandler(data){
-//    console.log("This section is the App.js ");
-//    Setname(data.name)
-//    console.log(data);
-//  }
+function interstedhandler(id){
+  let Interestedplace = place.filter((item)=>item.id ===id);
+  SetPlace(Interestedplace);
+}
+// reload logic 
+function reloadhandler(){
+  window.location.reload();
+}
+if(place.length===0){
+  return (
+    <div className='h-screen flex items-center justify-center flex-col '>
+      
+       <h2 className='text-center text-4xl m-5'>Plan with Raju</h2>
 
+    
+             <button  className=' text-center mx-auto text-7xl duration-75' onClick={reloadhandler}  >
+              <MdRefresh/>
+             </button>
+     
+    </div>
+  )
+}
 
 
   return (
     <>
-    {/* <div> 
-      <h1>my name is : {name}</h1>
-      <h1>This is App componet </h1>
-    </div>
-
-
-    <Newproduct product = {productHandler}/>
-    <CounterApp/> */}
-    <Card/>
+    {/* <Card/> */}
+    <Tours place = {place} datahandler = {placehandler} interstedhandler= {interstedhandler}/>
     </>
   )
 }
