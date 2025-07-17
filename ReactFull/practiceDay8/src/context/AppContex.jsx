@@ -6,12 +6,19 @@ export function AppContextProvider({ children }) {
   const [loading, setloading] = useState(false)
   const [posts, setposts] = useState([])
   const [page, setpage] = useState(1)
- const [totalPages, setTotalPages] = useState(null)
+  const [totalPages, setTotalPages] = useState(null)
 
-  const fetchdata = async (page ) => {
+  const fetchdata = async (page, tag = null, category) => {
+    let url = `${baseUrl}?page=${page}`
+    if (tag) {
+      url += `$tag=${tag}`
+    }
+    if (category) {
+      url += `&category=${category}`
+    }
     try {
       setloading(true)
-      const response = await fetch(`${baseUrl}?page=${page}`)
+      const response = await fetch(url)
       const data = await response.json()
       console.log(data)
       setloading(false)
